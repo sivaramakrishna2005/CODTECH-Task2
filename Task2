@@ -1,0 +1,102 @@
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Subject {
+
+    String name;
+    double grade;
+
+    Subject(String name, double grade) {
+        this.name = name;
+        this.grade = grade;
+    }
+}
+
+public class StudentGrade {
+
+    private ArrayList<Subject> subjects;
+
+    public StudentGrade() {
+        subjects = new ArrayList<>();
+    }
+
+    public void
+            addGrade(String SubjectName, double grade) {
+        subjects.add(new Subject(SubjectName, grade));
+    }
+
+    public double calculateAverage() {
+        double total = 0;
+        for (Subject subject : subjects) {
+            total += subject.grade;
+        }
+        return total / subjects.size();
+    }
+
+    public String
+            calculateLetterGrade(double average) {
+        if (average >= 90) {
+            return "A";
+        } else if (average >= 80) {
+            return "B";
+        } else if (average >= 70) {
+            return "C";
+        } else if (average >= 60) {
+            return "D";
+        } else {
+            return "F";
+        }
+    }
+
+    public double
+            calculateGPA(double average) {
+        if (average >= 90) {
+            return 9.0;
+        } else if (average >= 80) {
+            return 8.0;
+        } else if (average >= 70) {
+            return 7.0;
+        } else if (average >= 60) {
+            return 6.0;
+        } else {
+            return 0.0;
+        }
+    }
+
+    public void
+            displayGrades() {
+        System.out.println("Grades:");
+        for (Subject subject : subjects) {
+            System.out.println(subject.name + ": " + subject.grade);
+        }
+        double average = calculateAverage();
+        String letterGrade = calculateLetterGrade(average);
+        double gpa = calculateGPA(average);
+
+        System.out.println("Average Grade: " + average);
+        System.out.println("Letter Grade: " + letterGrade);
+        System.out.println("GPA: " + gpa);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        StudentGrade studentGrade = new StudentGrade();
+
+        while (true) {
+            System.out.println("Enter Subject Name (or 'done' to finish): ");
+            String subjectName = scanner.nextLine();
+            if (subjectName.equalsIgnoreCase("done")) {
+                break;
+            }
+            System.out.println("Enter grade for " + subjectName + ":");
+            double grade = scanner.nextDouble();
+            scanner.nextLine();
+            studentGrade.addGrade(subjectName, grade);
+
+        }
+        studentGrade.displayGrades();
+        scanner.close();
+
+    }
+}
