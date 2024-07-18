@@ -1,8 +1,8 @@
-**Name :** BADE SIVA RAMA KRISHNA NAIDU
-**Company :** CODTECH IT SOLUTIONS
-**ID :** CT6WDS1359
-**Domain :** JAVA PROGRAMMING
-**Mentor :** Neela Santhosh Kumar
+**Name :** BADE SIVA RAMA KRISHNA NAIDU    
+**Company :** CODTECH IT SOLUTIONS    
+**ID :** CT6WDS1359    
+**Domain :** JAVA PROGRAMMING   
+**Mentor :** Neela Santhosh Kumar   
 
 
 
